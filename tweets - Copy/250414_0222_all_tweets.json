@@ -1,0 +1,28 @@
+{
+    "tweets": [
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911560037262143818",
+            "text": "The firm at the heart of the AI revolution remains misunderstood. As does its CEO: Jensen Huang is thoughtful about the AI business yet he dismisses the technology\u2019s risks, a new book explains https://t.co/NFU665NvU3",
+            "image_path": null
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911559749151187143",
+            "text": "A recent history of American sanctions offers a timely, riveting world tour https://t.co/jyTsXAopzN",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911558781902737838",
+            "text": "The 7 Best Moisturizers For Aging Skin That Improve Elasticity https://t.co/IAHOsAVqNc https://t.co/IAHOsAVqNc via @ForbesVetted",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911558141113725010",
+            "text": "You've glamped, you've camped: why not stay in luxurious digs for your National Park vacation this year? https://t.co/W8RkS9OWhy",
+            "image_path": null
+        }
+    ]
+}

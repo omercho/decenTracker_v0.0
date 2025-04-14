@@ -1,0 +1,22 @@
+{
+    "tweets": [
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911575707446112759",
+            "text": "With their \u201cFighting Oligarchy\u201d tour, Bernie Sanders and Alexandria Ocasio-Cortez hope to show Donald Trump and his allies that there are plenty of people unhappy with how his second term is unfolding https://t.co/1sWPJ2L9Ci",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911573583207313887",
+            "text": "Hollywood went big on original movies after years of cranking out franchises. Those films are now hitting theaters\u2014and so far have been flops. https://t.co/eYFPLI7TUM",
+            "image_path": null
+        },
+        {
+            "accountID": "ReutersTech",
+            "tweet_url": "https://twitter.com/ReutersTech/status/1911572647080526061",
+            "text": "China's Xi to meet Vietnam leaders, kick off Southeast Asia tour amid US tariffs https://t.co/j9C3q7vOLa https://t.co/MAl0yv7qeR",
+            "image_path": "tweets/250414_0322_1911572647080526061.jpg"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tweets": [
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911579114210730357",
+            "text": "No one would dispute that this $2,195 carry-on bag is an investment. Here, why the brand\u2019s fans think its luggage is worth it. https://t.co/tddtVqCOnK",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911577663904366646",
+            "text": "Why 50% Of Americans Think It\u2019s Time For A Career Change https://t.co/m4gOy1cqed https://t.co/m4gOy1cqed",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911576264567107891",
+            "text": "Americans are pouring money into Roth accounts, both contributing directly and using \u201cbackdoor\u201d Roth strategies that allow them to slip in even more https://t.co/1FznMRvEwo",
+            "image_path": null
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "G:\\My Drive\\decenTracker\\venv_decentracker\\Scripts\\python.exe",
+    "python.analysis.extraPaths": [
+        "G:\\My Drive\\decenTracker\\venv_decentracker\\Lib\\site-packages"
+    ]
+}

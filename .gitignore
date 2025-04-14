@@ -1,0 +1,4 @@
+# .gitignore
+config.py
+venv_decentracker
+keys.txt

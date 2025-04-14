@@ -1,0 +1,34 @@
+{
+    "tweets": [
+        {
+            "accountID": "nytimes",
+            "tweet_url": "https://twitter.com/nytimes/status/1911546862684852536",
+            "text": "RT @edjsandoval: Pennsylvania state authorities have arrested a 38-year-old Harrisburg man and said he set fire to the Pennsylvania governo\u2026",
+            "image_base64": null
+        },
+        {
+            "accountID": "TIME",
+            "tweet_url": "https://twitter.com/TIME/status/1911546009810780523",
+            "text": "Are smartphones and laptops among the electronics now exempt from Trump's \"reciprocal\" tariffs?\n\nHere's what to know https://t.co/Qyen6uquOk",
+            "image_base64": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911545343272960114",
+            "text": "Exclusive: A key architect of the Trump administration\u2019s campaign to slash foreign aid has left the State Department after less than three months on the job, according to U.S. officials https://t.co/0gdejSPCF6",
+            "image_base64": null
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911545182979322267",
+            "text": "In November 2022 Kherson was full of Ukrainians rejoicing at the Russians\u2019 retreat from the city. Now its central square is empty and dangerous https://t.co/0klA5G1UL8",
+            "image_base64": null
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911545182928998856",
+            "text": "New research associates butter with an early death. But choose your alternatives wisely https://t.co/bu573329lq",
+            "image_base64": null
+        }
+    ]
+}

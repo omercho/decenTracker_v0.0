@@ -1,0 +1,28 @@
+{
+    "tweets": [
+        {
+            "accountID": "TechCrunch",
+            "tweet_url": "https://twitter.com/TechCrunch/status/1911567195315884466",
+            "text": "UK founders grow frustrated over dearth of funding: \u2018the problem is getting worse\u2019 https://t.co/Pewv9yVAND",
+            "image_path": null
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911567091510976970",
+            "text": "Protests against the arrest of an opposition leader continue to boil https://t.co/gmiWydFCAi",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911565709521408334",
+            "text": "A new Broadway hit is leaving some fans confused. \u201cIt\u2019s like going to see the Eagles and they don\u2019t play Hotel California.\u201d\n https://t.co/JKQDTybssY",
+            "image_path": null
+        },
+        {
+            "accountID": "WIRED",
+            "tweet_url": "https://twitter.com/WIRED/status/1911565518726717820",
+            "text": "The blockbuster antitrust case begins Monday. Its outcome could impact how Big Tech companies grow\u2014but the government has a long way to go to prove its case. https://t.co/p6wSGQe3WS",
+            "image_path": null
+        }
+    ]
+}

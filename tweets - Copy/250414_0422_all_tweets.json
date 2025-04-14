@@ -1,0 +1,40 @@
+{
+    "tweets": [
+        {
+            "accountID": "AutismCapital",
+            "tweet_url": "https://twitter.com/AutismCapital/status/1911589875129946229",
+            "text": "\ud83d\udea8NEW: Babe wake up! Trump and 60 Minutes are beefing again! \ud83d\udd25\ud83c\udf7f https://t.co/uQbCObHHmg",
+            "image_path": "tweets/250414_0422_1911589875129946229.jpg"
+        },
+        {
+            "accountID": "AutismCapital",
+            "tweet_url": "https://twitter.com/AutismCapital/status/1911589165063700760",
+            "text": "Our personal hope is Obama v Third Term Trump. That would be the maximum entertainment scenario \ud83c\udf7f\ud83d\ude02 https://t.co/1MzXBAO0Zt",
+            "image_path": "tweets/250414_0422_1911589165063700760.jpg"
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911589042648498456",
+            "text": "You can cash in on a trip to Vegas if you\u2019re willing to hear a timeshare sales pitch, writes Carry On columnist Dawn Gilbertson https://t.co/7TksBAP4bH",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911588982841876737",
+            "text": "The Best Pillows For Neck Pain, After Testing Dozens Of Options https://t.co/J8Dt5eIJFU https://t.co/J8Dt5eIJFU via @ForbesVetted",
+            "image_path": null
+        },
+        {
+            "accountID": "WIRED",
+            "tweet_url": "https://twitter.com/WIRED/status/1911588255268581389",
+            "text": "A novel drug that produces a temporary coating in the small intestine could be a new strategy for weight loss\u2014and an alternative to surgeries and GLP-1 drugs. \nhttps://t.co/DVYidX0A4V",
+            "image_path": null
+        },
+        {
+            "accountID": "AutismCapital",
+            "tweet_url": "https://twitter.com/AutismCapital/status/1911588207696945582",
+            "text": "@Dee_DDeSimone We're not calling Newsom a moderate. We're saying he's trying to be more moderate. Which he is, through hosting right leaning people on his podcast and having more open conversations, which is obviously an act to raise more donor money and completely disingenuous, but does imply",
+            "image_path": null
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "tweets": [
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911582563073741033",
+            "text": "An extra fee is showing up on shopping bills, and it carries a not-so-subtle message: These tariffs weren\u2019t our idea https://t.co/dcakSBlzOl",
+            "image_path": null
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911580260790862301",
+            "text": "Every university president in America dreads the arrival of \u201cthe letter\u201d from the administration. And the campaign against these institutions may only be just beginning https://t.co/laYPojzcU5",
+            "image_path": null
+        }
+    ]
+}

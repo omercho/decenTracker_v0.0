@@ -1,0 +1,46 @@
+{
+    "tweets": [
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911563078480654531",
+            "text": "Research by two professors of economics suggests that part of the disorderly selling witnessed this week may be due to a deeper source of fragility in the way the Treasury market operates. Read their guest essay: https://t.co/iR28AkmkGF",
+            "image_path": null
+        },
+        {
+            "accountID": "AutismCapital",
+            "tweet_url": "https://twitter.com/AutismCapital/status/1911562860150636563",
+            "text": "Can\u2019t wait for the Netflix adaptation where he was a member of an alt right fascist online hate group. \n\nThe reality: https://t.co/Zyt4G6phKq",
+            "image_path": "tweets/250414_0237_1911562860150636563.jpg"
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911562809990602917",
+            "text": "\u201cThe Wagners are heroes.\u201d\n\nTo some in the Central African Republic, welcoming Russian mercenaries was an act of anti-colonial defiance. The West, meanwhile, is on high alert https://t.co/X1HIAeYNUv",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911562557631967493",
+            "text": "4 Expert Tips For Writing A Cover Letter That Lands Interviews https://t.co/HyNgsVW99J",
+            "image_path": null
+        },
+        {
+            "accountID": "nytimes",
+            "tweet_url": "https://twitter.com/nytimes/status/1911562531715318077",
+            "text": "Breaking News from @TheAthletic: After a tense playoff, Rory McIlroy won his first Masters to become just the sixth golfer to complete a career Grand Slam. https://t.co/Ibk6Vkhe8P",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911562253960196163",
+            "text": "Breaking: Rory McIlroy won the Masters, overcoming a gut-wrenching back nine to beat Justin Rose in a sudden-death playoff https://t.co/pJQ8iDiwoO",
+            "image_path": null
+        },
+        {
+            "accountID": "AutismCapital",
+            "tweet_url": "https://twitter.com/AutismCapital/status/1911561373458579648",
+            "text": "POV: Some high schooler called their friend a homo online in England https://t.co/MmWvY1ItIT",
+            "image_path": "tweets/250414_0237_1911561373458579648.jpg"
+        }
+    ]
+}

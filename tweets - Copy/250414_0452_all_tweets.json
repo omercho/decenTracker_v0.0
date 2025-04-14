@@ -1,0 +1,22 @@
+{
+    "tweets": [
+        {
+            "accountID": "AutismCapital",
+            "tweet_url": "https://twitter.com/AutismCapital/status/1911596508925100417",
+            "text": "\ud83d\udea8FUN FACT: Most people don't know Gretchen Whitmer actually has a superpower...it's complicated though https://t.co/Gf9bXoAJ9a https://t.co/1jIUeopfsB",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911596266057846816",
+            "text": "Elon Musk\u2019s polygonal pickup is a polarizing sales flop that's missed the billionaire\u2019s volume goal by a staggering 84%. And there\u2019s no sign that things are improving.\nRead more: https://t.co/XEWso0nFbJ https://t.co/Rg2tvBF9Xq",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911596050336391289",
+            "text": "RT @giacomotognini: 1/ Remon Vos moved to Czechia in the 1990s and started building logistics parks. Three decades of post-Cold War growth\u2026",
+            "image_path": null
+        }
+    ]
+}

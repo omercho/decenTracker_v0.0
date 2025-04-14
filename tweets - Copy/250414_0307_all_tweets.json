@@ -1,0 +1,28 @@
+{
+    "tweets": [
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911571424172552444",
+            "text": "Asia\u2019s love of gold is partly to do with its role in important life events, especially weddings. But economic and financial motives also play a role https://t.co/i4IFZmzxOL",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911570885552558402",
+            "text": "How Treasury Secretary Scott Bessent, a Wall Street veteran, embraced MAGA\u2019s pro-tariff populism and made one of the highest-stakes gambles in modern political and economic history https://t.co/pTDjoeMD2M",
+            "image_path": null
+        },
+        {
+            "accountID": "WIRED",
+            "tweet_url": "https://twitter.com/WIRED/status/1911570248530018750",
+            "text": "The unsigned agreement between the US DOGE Service and the Department of Labor provides significant insight into DOGE\u2019s work with federal agencies.\nhttps://t.co/esao5yz1FC",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911570131337040308",
+            "text": "Forbes ranked the #WorldsBestBanks of 2025. Take a look: https://t.co/OIMFcmwLGx https://t.co/OIMFcmwLGx",
+            "image_path": null
+        }
+    ]
+}

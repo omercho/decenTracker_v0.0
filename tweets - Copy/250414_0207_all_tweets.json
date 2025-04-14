@@ -1,0 +1,28 @@
+{
+    "tweets": [
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911555522773254550",
+            "text": "European authorities, increasingly worried about their reliance on Elon Musk and his satellite internet provider Starlink, are turning to a homegrown alternative https://t.co/i2L7NSATBx",
+            "image_path": null
+        },
+        {
+            "accountID": "TheEconomist",
+            "tweet_url": "https://twitter.com/TheEconomist/status/1911555516599353587",
+            "text": "From mining to steelmaking, heavy industries are cleaning up with artificial intelligence. Here\u2019s how https://t.co/4T5XsIld4c",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911555033075769449",
+            "text": "#ForbesAI50: Writer CEO May Habib has gone all-out for the past few months, opening four new offices with plans to double the headcount of her AI startup to 600 this year. Investors have a fitting moniker for her: \u201cthe time traveler.\u201d https://t.co/DFHBOqUioG https://t.co/VPvUohPIR2",
+            "image_path": "tweets/250414_0207_1911555033075769449.jpg"
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911554009887826075",
+            "text": "Tax Breaks: The Week That Turned Out To Be A Wild Ride Edition https://t.co/CA2qplVDLL https://t.co/CA2qplVDLL",
+            "image_path": null
+        }
+    ]
+}

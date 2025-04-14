@@ -1,0 +1,28 @@
+{
+    "tweets": [
+        {
+            "accountID": "WIRED",
+            "tweet_url": "https://twitter.com/WIRED/status/1911601722855653437",
+            "text": "During the second-season premiere of \u201cThe Last of Us,\u201d Ellie gets called a homophobic slur. Craig Mazin tells WIRED it highlights what happens when humanity stops moving forward. https://t.co/v7NIEohFgl",
+            "image_path": null
+        },
+        {
+            "accountID": "WIRED",
+            "tweet_url": "https://twitter.com/WIRED/status/1911601593646010380",
+            "text": "Last week, DOGE and a handful of Palantir representatives, along with dozens of career IRS engineers, were collaborating to build a \"mega API,\" WIRED has learned.\nhttps://t.co/kEh1yAeUhb",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911600302572122364",
+            "text": "InnovationRx: Trump Vows That \u2018Major\u2019 Pharma Tariffs Are Coming https://t.co/zUspK6yd6u https://t.co/zUspK6yd6u",
+            "image_path": null
+        },
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911599929971167706",
+            "text": "Many Canadians are giving up their U.S. vacation homes, selling properties they have owned for decades in popular snowbird spots like Florida and Arizona https://t.co/YKJrC7B7rG",
+            "image_path": null
+        }
+    ]
+}

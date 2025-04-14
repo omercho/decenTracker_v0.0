@@ -1,0 +1,22 @@
+{
+    "tweets": [
+        {
+            "accountID": "WSJ",
+            "tweet_url": "https://twitter.com/WSJ/status/1911605202429292992",
+            "text": "President Trump says his tariffs will reverse the long gradual decline of American manufacturing, but economists are skeptical https://t.co/TsJoDnGoIN",
+            "image_path": null
+        },
+        {
+            "accountID": "TIME",
+            "tweet_url": "https://twitter.com/TIME/status/1911604823570465149",
+            "text": "Golfer Rory McIlroy wins 2025 Masters to complete career Grand Slam https://t.co/RbzxhUZw5T",
+            "image_path": null
+        },
+        {
+            "accountID": "Forbes",
+            "tweet_url": "https://twitter.com/Forbes/status/1911604822429635002",
+            "text": "Chinese billionaires are making a comeback amid the country\u2019s AI advancement and the government\u2019s friendlier stance toward the private sector. #ForbesBillionaires \nRead more: https://t.co/RUDuc4QCXM https://t.co/6HGmUzyH9m",
+            "image_path": null
+        }
+    ]
+}
