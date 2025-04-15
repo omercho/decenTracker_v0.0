@@ -2,3 +2,5 @@
 config.py
 venv_decentracker
 keys.txt
+bot_debug.log
+bot.log

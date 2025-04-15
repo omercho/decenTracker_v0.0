@@ -1,16 +1,18 @@
 import tweepy
+import snscrape.modules.twitter as sntwitter
 import requests
 import os
 import json
-import logging
-import asyncio
-import aiohttp
 from datetime import datetime, timedelta, timezone
 import time
-from config import BEARER_TOKEN
+import logging
 
-# Set up logging
-logging.basicConfig(filename="bot.log", level=logging.INFO, format="%(asctime)s - %(message)s")
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("bot.log"), logging.StreamHandler()],
+)
 
 # Step 1: Set up the output directories
 if not os.path.exists("tweets"):
@@ -30,49 +32,32 @@ def read_accounts(file_path):
         exit(1)
     return accounts
 
-# Step 3: Async function for downloading images
-async def download_image_async(url, filename):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            if response.status == 200:
-                with open(filename, "wb") as img_file:
-                    img_file.write(await response.read())
-                logging.info(f"Saved image: {filename}")
-
-# Step 4: Fetch tweets using /2/tweets/search/recent
-def fetch_tweets(accounts):
+# Step 3: Fetch tweets using Twitter API
+def fetch_tweets_tweepy(accounts):
     # Initialize the Twitter API client
     client = tweepy.Client(bearer_token=BEARER_TOKEN)
-
-    # Load cached tweet IDs
-    cached_tweets_file = "cached_tweets.json"
-    if os.path.exists(cached_tweets_file):
-        with open(cached_tweets_file, "r") as f:
-            cached_tweets = set(json.load(f))
-    else:
-        cached_tweets = set()
 
     # Calculate the start time (e.g., 15 minutes ago)
     start_time = (datetime.utcnow() - timedelta(minutes=15)).isoformat() + "Z"
 
     # Construct the query for all accounts
     query = " OR ".join([f"from:{account}" for account in accounts])
+    query += " -is:retweet -is:reply"  # Exclude retweets and replies
 
     try:
         # Fetch tweets
         response = client.search_recent_tweets(
             query=query,
-            max_results=100,
-            tweet_fields=["created_at", "attachments", "author_id"],
-            expansions=["author_id", "attachments.media_keys"],
+            max_results=100,  # Maximum tweets per request
+            tweet_fields=["created_at", "attachments", "author_id"],  # Include author_id
+            expansions=["author_id", "attachments.media_keys"],  # Include user and media details
             media_fields=["url"],
-            start_time=start_time
+            start_time=start_time,
         )
 
-        # Extract rate limit headers
+        # Log rate limit headers
         rate_limit_remaining = int(response.meta.get("x-rate-limit-remaining", 0))
         rate_limit_reset = int(response.meta.get("x-rate-limit-reset", 0))
-
         logging.info(f"Remaining requests: {rate_limit_remaining}, Reset time: {rate_limit_reset}")
 
         # Check if we're close to the rate limit
@@ -83,8 +68,8 @@ def fetch_tweets(accounts):
             wait_time = (reset_time_local - datetime.now(local_timezone)).total_seconds() + 10  # Add buffer
 
             logging.warning(f"Rate limit exceeded. Waiting until {reset_time_local.strftime('%Y-%m-%d %H:%M:%S')} ({wait_time:.0f} seconds)...")
-            time.sleep(max(wait_time, 0))
-            return
+            time.sleep(max(wait_time, 0))  # Ensure non-negative wait time
+            return []
 
         # Extract users and media from the includes field
         users = {user.id: user.username for user in response.includes.get("users", [])}
@@ -92,28 +77,18 @@ def fetch_tweets(accounts):
 
         # Collect all tweets into a single list
         tweets_list = []
-        new_tweets_found = False
-
         if response.data:
-            # Generate timestamp for the JSON file
-            timestamp = datetime.now().strftime("%y%m%d_%H%M")
-
-            tasks = []  # Store async image downloads
-
             for tweet in response.data:
-                if tweet.id in cached_tweets:
-                    continue
-
                 # Resolve the username from the author_id
                 author_username = users.get(tweet.author_id, "Unknown")
                 tweet_url = f"https://twitter.com/{author_username}/status/{tweet.id}"
 
                 # Prepare tweet metadata
                 tweet_data = {
-                    "accountID": author_username,
+                    "accountID": author_username,  # Use the resolved username
                     "tweet_url": tweet_url,
                     "text": tweet.text,
-                    "image_path": None
+                    "image_path": None,  # Placeholder for image path
                 }
 
                 # Check for media in the tweet
@@ -125,61 +100,138 @@ def fetch_tweets(accounts):
                             image_url = media.url
 
                             # Generate a unique filename for the image
-                            image_filename = f"tweets/{tweet.id}.jpg"
+                            timestamp = datetime.now().strftime("%y%m%d_%H%M")
+                            image_filename = f"tweets/{timestamp}_{tweet.id}.jpg"
 
-                            # Check if the image already exists
-                            if not os.path.exists(image_filename):
-                                tasks.append(download_image_async(image_url, image_filename))
+                            # Download the image
+                            response_media = requests.get(image_url)
+                            if response_media.status_code == 200:
+                                with open(image_filename, "wb") as img_file:
+                                    img_file.write(response_media.content)
+                                logging.info(f"Saved image: {image_filename}")
+                                
+                                # Update the tweet data with the image path
                                 tweet_data["image_path"] = image_filename
-                            else:
-                                logging.info(f"Image already exists: {image_filename}")
                             break  # Embed only the first image
 
+                # Add tweet to the list
                 tweets_list.append(tweet_data)
-                cached_tweets.add(tweet.id)
-                new_tweets_found = True
 
-            # Run async image downloads
-            asyncio.run(asyncio.gather(*tasks))
-
-        if tweets_list:
-            json_filename = f"tweets/{timestamp}_all_tweets.json"
-            with open(json_filename, "w") as f:
-                json.dump({"tweets": tweets_list}, f, indent=4)
-            logging.info(f"Saved tweet data: {json_filename}")
-
-        if not new_tweets_found:
-            logging.info("No new tweets found in the last 15 minutes.")
-
-        # Save updated cache
-        with open(cached_tweets_file, "w") as f:
-            json.dump(list(cached_tweets), f)
+        return tweets_list
 
     except tweepy.TooManyRequests as e:
-        logging.error("TooManyRequests Exception Caught")
+        logging.warning("Rate limit exceeded. Waiting until the reset time...")
         headers = e.response.headers
-        logging.error(f"Headers: {headers}")
-
-        reset_time_utc = datetime.fromtimestamp(int(headers.get("x-rate-limit-reset", 0)), tz=timezone.utc)
-        local_timezone = timezone(timedelta(hours=3))
+        rate_limit_reset = int(headers.get("x-rate-limit-reset", 0))
+        reset_time_utc = datetime.fromtimestamp(rate_limit_reset, tz=timezone.utc)
+        local_timezone = timezone(timedelta(hours=3))  # Define GMT+3 timezone
         reset_time_local = reset_time_utc.astimezone(local_timezone)
-        wait_time = (reset_time_local - datetime.now(local_timezone)).total_seconds() + 10
+        wait_time = (reset_time_local - datetime.now(local_timezone)).total_seconds() + 10  # Add buffer
 
-        logging.warning(f"Rate limit exceeded. Waiting until {reset_time_local.strftime('%Y-%m-%d %H:%M:%S')} ({wait_time:.0f} seconds)...")
+        logging.warning(f"Waiting until {reset_time_local.strftime('%Y-%m-%d %H:%M:%S')} ({wait_time:.0f} seconds)...")
         time.sleep(max(wait_time, 0))
+        return []
+
+    except tweepy.TweepyException as e:
+        logging.error(f"Tweepy error occurred: {e}")
+        return []
 
     except Exception as e:
-        logging.error(f"Unexpected error: {e}", exc_info=True)
+        logging.error(f"Unexpected error: {e}")
+        return []
 
-# Step 5: Run the bot
-if __name__ == "__main__":
+# Step 4: Fetch tweets using snscrape
+def fetch_tweets_snscrape(accounts):
+    tweets_list = []
+    for account in accounts:
+        try:
+            logging.info(f"Fetching tweets for account: {account} using snscrape")
+            for i, tweet in enumerate(sntwitter.TwitterUserScraper(account).get_items()):
+                if i >= 100:  # Limit to 100 tweets
+                    break
+
+                # Prepare tweet metadata
+                tweet_data = {
+                    "accountID": account,
+                    "tweet_url": tweet.url,
+                    "text": tweet.content,
+                    "image_path": None,  # Placeholder for image path
+                }
+
+                # Check for media in the tweet
+                if tweet.media and isinstance(tweet.media, list):
+                    for media in tweet.media:
+                        if hasattr(media, "previewUrl") and media.previewUrl:
+                            image_url = media.previewUrl
+
+                            # Generate a unique filename for the image
+                            timestamp = datetime.now().strftime("%y%m%d_%H%M")
+                            image_filename = f"tweets/{timestamp}_{tweet.id}.jpg"
+
+                            # Download the image
+                            response_media = requests.get(image_url)
+                            if response_media.status_code == 200:
+                                with open(image_filename, "wb") as img_file:
+                                    img_file.write(response_media.content)
+                                logging.info(f"Saved image: {image_filename}")
+                                
+                                # Update the tweet data with the image path
+                                tweet_data["image_path"] = image_filename
+                            break  # Embed only the first image
+
+                # Add tweet to the list
+                tweets_list.append(tweet_data)
+
+        except Exception as e:
+            logging.error(f"Error fetching tweets for account {account}: {e}")
+            continue
+
+    return tweets_list
+
+# Step 5: Save tweets to a JSON file
+def save_tweets(tweets_list):
+    if not tweets_list:
+        logging.info("No new tweets found.")
+        return
+
+    # Generate timestamp for the JSON file
+    timestamp = datetime.now().strftime("%y%m%d_%H%M")
+    json_filename = f"tweets/{timestamp}_all_tweets.json"
+
+    # Save tweet data to a JSON file
+    tweets_data = {"tweets": tweets_list}
+    with open(json_filename, "w") as f:
+        json.dump(tweets_data, f, indent=4)
+    logging.info(f"Saved tweet data: {json_filename}")
+
+# Step 6: Main function
+def main():
+    # Read accounts from accounts.txt
     accounts = read_accounts("accounts.txt")
     logging.info(f"Accounts to track: {accounts}")
 
-    try:
-        while True:
-            fetch_tweets(accounts)
+    while True:
+        try:
+            # Fetch tweets using Twitter API
+            tweets_list = fetch_tweets_tweepy(accounts)
+
+            # If Twitter API fails, fall back to snscrape
+            if not tweets_list:
+                logging.warning("Twitter API failed. Falling back to snscrape.")
+                tweets_list = fetch_tweets_snscrape(accounts)
+
+            # Save tweets
+            save_tweets(tweets_list)
+
+            # Wait before the next request
             logging.info("Waiting before the next request...")
-            time.sleep(900)
-    except KeyboardInterrupt:
-        logging.info("Bot stopped by user. Exiting gracefully.")
+            time.sleep(900)  # Default wait time (15 minutes)
+
+        except KeyboardInterrupt:
+            logging.info("Bot stopped by user. Exiting gracefully...")
+            break
+
+# Step 7: Run the bot
+if __name__ == "__main__":
+    from config import BEARER_TOKEN  # Import your Twitter API Bearer Token
+    main()

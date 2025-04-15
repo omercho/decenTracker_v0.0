@@ -12,3 +12,13 @@ A Python bot to fetch tweets from Twitter accounts and save them as JSON files w
 1. Install dependencies:
    ```bash
    pip install tweepy requests
+
+2. Add your Twitter accounts to accounts.txt.
+3. Set your Twitter Bearer Token in config.py.
+
+Usage
+Run the bot: python decentracker_bot.py
+
+Notes
+Uses the Twitter API v2.
+Requires a Twitter Developer account.
